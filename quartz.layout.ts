@@ -49,7 +49,7 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.Comments({
         provider: "isso",
         options: {
-          serverUrl: process.env.ISSO_PUBLIC_URL ?? "https://viswanathsaj.com/isso/",
+          serverUrl: "/isso/",
         },
       }),
       condition: (page) => page.fileData.slug !== "index",
