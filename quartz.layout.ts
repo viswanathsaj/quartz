@@ -16,6 +16,16 @@ export const sharedPageComponents: SharedLayout = {
   ],
   afterBody: [
     Component.ConditionalRender({
+      component: Component.Flex({
+        components: [
+          { Component: Component.Graph(), basis: "50%" },
+          { Component: Component.Backlinks(), basis: "50%" },
+        ],
+        gap: "1.5rem",
+      }),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
+    Component.ConditionalRender({
       component: Component.Comments({
         provider: "isso",
         options: {
@@ -47,15 +57,6 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   left: [],
   right: [],
-  afterBody: [
-    Component.Flex({
-      components: [
-        { Component: Component.Graph(), basis: "50%" },
-        { Component: Component.Backlinks(), basis: "50%" },
-      ],
-      gap: "1.5rem",
-    }),
-  ],
 }
 
 // components for pages that display lists of pages (e.g. tags or folders)
