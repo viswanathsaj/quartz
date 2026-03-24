@@ -19,6 +19,7 @@ COPY . .
 # Sync vault into content/
 RUN ob login --email $OBSIDIAN_EMAIL --password $OBSIDIAN_PASSWORD && \
     ob sync-setup --vault "$OBSIDIAN_VAULT" --path ./content --password $OBSIDIAN_KEY && \
+    ob sync-config --mode pull-only && \
     ob sync --path ./content
 
 RUN npx quartz build
