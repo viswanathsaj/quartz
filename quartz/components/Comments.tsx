@@ -1,25 +1,35 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
 // @ts-ignore
-import script from "./scripts/comments.inline"
+import giscusScript from "./scripts/comments.inline"
+// @ts-ignore
+import issoScript from "./scripts/isso.inline"
+import style from "./styles/comments.scss"
 
-type Options = {
-  provider: "giscus"
-  options: {
-    repo: `${string}/${string}`
-    repoId: string
-    category: string
-    categoryId: string
-    themeUrl?: string
-    lightTheme?: string
-    darkTheme?: string
-    mapping?: "url" | "title" | "og:title" | "specific" | "number" | "pathname"
-    strict?: boolean
-    reactionsEnabled?: boolean
-    inputPosition?: "top" | "bottom"
-    lang?: string
-  }
-}
+type Options =
+  | {
+      provider: "giscus"
+      options: {
+        repo: `${string}/${string}`
+        repoId: string
+        category: string
+        categoryId: string
+        themeUrl?: string
+        lightTheme?: string
+        darkTheme?: string
+        mapping?: "url" | "title" | "og:title" | "specific" | "number" | "pathname"
+        strict?: boolean
+        reactionsEnabled?: boolean
+        inputPosition?: "top" | "bottom"
+        lang?: string
+      }
+    }
+  | {
+      provider: "isso"
+      options: {
+        serverUrl: string
+      }
+    }
 
 function boolToStringBool(b: boolean): string {
   return b ? "1" : "0"
@@ -33,6 +43,17 @@ export default ((opts: Options) => {
       (!fileData.frontmatter?.comments || fileData.frontmatter?.comments === "false")
     if (disableComment) {
       return <></>
+    }
+
+    if (opts.provider === "isso") {
+      const serverUrl = opts.options.serverUrl.replace(/\/$/, "")
+      return (
+        <div class={classNames(displayClass, "isso-comments")} data-isso-server={serverUrl}>
+          <section id="isso-thread">
+            <noscript>Javascript needs to be activated to view comments.</noscript>
+          </section>
+        </div>
+      )
     }
 
     return (
@@ -56,7 +77,8 @@ export default ((opts: Options) => {
     )
   }
 
-  Comments.afterDOMLoaded = script
+  Comments.afterDOMLoaded = opts.provider === "isso" ? issoScript : giscusScript
+  Comments.css = style
 
   return Comments
 }) satisfies QuartzComponentConstructor<Options>

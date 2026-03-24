@@ -1,0 +1,188 @@
+.isso-comments {
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+
+  // ── Thread heading ──────────────────────────────────────────────────────────
+
+  h4.isso-thread-heading {
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: var(--headerFont);
+    color: var(--dark);
+    margin: 0 0 1.25rem;
+  }
+
+  .isso-feedlink {
+    float: right;
+    a {
+      font-size: 0.75rem;
+      color: var(--gray);
+      text-decoration: none;
+      &:hover { color: var(--dark); }
+    }
+  }
+
+  // ── Comments ────────────────────────────────────────────────────────────────
+
+  .isso-comment {
+    max-width: 100%;
+    margin: 0;
+    padding: 0.875rem 0;
+
+    &:not(:first-of-type),
+    .isso-follow-up & {
+      border-top: 1px dashed var(--lightgray);
+      margin-bottom: 0;
+    }
+  }
+
+  .isso-avatar {
+    margin: 0.25rem 0.75rem 0 0;
+    svg {
+      border: 1px solid var(--lightgray);
+      border-radius: 4px;
+      box-shadow: none;
+      max-width: 36px;
+      max-height: 36px;
+    }
+  }
+
+  .isso-text-wrapper {
+    padding: 0;
+  }
+
+  .isso-comment-header {
+    font-size: 0.8rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .isso-author {
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  .isso-spacer,
+  .isso-permalink,
+  .isso-note,
+  .isso-parent {
+    color: var(--gray);
+    &:hover { color: var(--darkgray); }
+  }
+
+  .isso-text {
+    font-size: 0.875rem;
+    color: var(--darkgray);
+    line-height: 1.6;
+
+    p { margin: 0.25em 0; }
+    p:last-child { margin-bottom: 0; }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+
+  .isso-comment-footer {
+    font-size: 0.75rem;
+    color: var(--gray);
+    clear: left;
+    margin-top: 0.4rem;
+
+    a {
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--gray);
+      &:hover { color: var(--dark); text-shadow: none; }
+    }
+
+    .isso-votes { color: var(--gray); }
+  }
+
+  .isso-follow-up {
+    padding-left: 2.75rem;
+  }
+
+  // ── Postbox ─────────────────────────────────────────────────────────────────
+
+  .isso-postbox {
+    max-width: 100%;
+    margin: 1.5rem 0 0;
+  }
+
+  .isso-textarea,
+  .isso-preview {
+    font-family: var(--bodyFont);
+    font-size: 0.875rem;
+    color: var(--darkgray);
+    background-color: var(--light);
+    border: 1px solid var(--lightgray);
+    border-radius: 4px;
+    box-shadow: none;
+    padding: 0.5rem 0.75rem;
+
+    &:focus {
+      outline: none;
+      border-color: var(--gray);
+    }
+  }
+
+  .isso-auth-section input {
+    font-family: var(--bodyFont);
+    font-size: 0.8rem;
+    color: var(--darkgray);
+    background-color: var(--light);
+    border: 1px solid var(--lightgray);
+    border-radius: 4px;
+    box-shadow: none;
+    padding: 0.3rem 0.6rem;
+    line-height: 1.4em;
+
+    &:focus {
+      outline: none;
+      border-color: var(--gray);
+    }
+  }
+
+  .isso-input-wrapper label {
+    font-size: 0.75rem;
+    color: var(--gray);
+  }
+
+  .isso-post-action > input {
+    font-family: var(--bodyFont);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--dark);
+    background-color: var(--lightgray);
+    border: 1px solid var(--lightgray);
+    border-radius: 4px;
+    box-shadow: none;
+    padding: 0.3rem 0.75rem;
+    cursor: pointer;
+
+    &:hover { background-color: var(--gray); color: var(--light); border-color: var(--gray); }
+    &:active { background-color: var(--darkgray); border-color: var(--darkgray); }
+  }
+
+  .isso-notification-section {
+    font-size: 0.75rem;
+    color: var(--gray);
+  }
+
+  // ── Target highlight (dark-mode aware) ──────────────────────────────────────
+
+  .isso-target {
+    animation: isso-target-fade 5s ease-out;
+  }
+
+  @keyframes isso-target-fade {
+    0% { background-color: color-mix(in srgb, var(--tertiary) 20%, transparent); }
+  }
+
+  // ── Preview mode ─────────────────────────────────────────────────────────────
+
+  .isso-preview {
+    background: color-mix(in srgb, var(--lightgray) 30%, var(--light));
+  }
+}

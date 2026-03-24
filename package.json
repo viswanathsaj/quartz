@@ -1,5 +1,5 @@
 {
-  "name": "@jackyzha0/quartz",
+  "name": "garden",
   "description": "🌱 publish your digital garden and notes as a website",
   "private": true,
   "version": "4.5.2",
@@ -13,14 +13,13 @@
   },
   "scripts": {
     "quartz": "./quartz/bootstrap-cli.mjs",
-    "docs": "npx quartz build --serve -d docs",
-    "check": "tsc --noEmit && npx prettier . --check",
-    "format": "npx prettier . --write",
+    "docs": "pnpm quartz build --serve -d docs",
+    "check": "tsc --noEmit && pnpm prettier . --check",
+    "format": "pnpm prettier . --write",
     "test": "tsx --test",
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1"
   },
   "engines": {
-    "npm": ">=10.9.2",
     "node": ">=22"
   },
   "keywords": [
@@ -56,6 +55,7 @@
     "is-absolute-url": "^5.0.0",
     "js-yaml": "^4.1.1",
     "lightningcss": "^1.31.1",
+    "lucide-preact": "^0.577.0",
     "mdast-util-find-and-replace": "^3.0.2",
     "mdast-util-to-hast": "^13.2.1",
     "mdast-util-to-string": "^4.0.0",
