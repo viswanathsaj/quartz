@@ -14,7 +14,17 @@ export const sharedPageComponents: SharedLayout = {
       ],
     }),
   ],
-  afterBody: [],
+  afterBody: [
+    Component.ConditionalRender({
+      component: Component.Comments({
+        provider: "isso",
+        options: {
+          serverUrl: "/isso/",
+        },
+      }),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
+  ],
   footer: Component.SiteFooter(),
 }
 
@@ -44,15 +54,6 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.Backlinks(), basis: "50%" },
       ],
       gap: "1.5rem",
-    }),
-    Component.ConditionalRender({
-      component: Component.Comments({
-        provider: "isso",
-        options: {
-          serverUrl: "/isso/",
-        },
-      }),
-      condition: (page) => page.fileData.slug !== "index",
     }),
   ],
 }
