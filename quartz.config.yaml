@@ -1,0 +1,303 @@
+# yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
+configuration:
+  pageTitle: "Viswanath Saj"
+  pageTitleSuffix: " | Viswanath Saj"
+  enableSPA: true
+  enablePopovers: true
+  analytics: null
+  locale: en-US
+  baseUrl: viswanathsaj.com/garden
+  ignorePatterns:
+    - private
+    - templates
+    - .obsidian
+  theme:
+    fontOrigin: googleFonts
+    cdnCaching: true
+    typography:
+      title: Inter
+      header: Inter
+      body: Lora
+      code: JetBrains Mono
+    colors:
+      lightMode:
+        light: "#ffffff"
+        lightgray: "#e5e5e5"
+        gray: "#b3b3b3"
+        darkgray: "#4a4a4a"
+        dark: "#1d1d1d"
+        secondary: "#3d3d3d"
+        tertiary: "#7a7a7a"
+        highlight: "rgba(0, 0, 0, 0.05)"
+        textHighlight: "rgba(0, 0, 0, 0.08)"
+      darkMode:
+        light: "#1a1a1a"
+        lightgray: "#2e2e2e"
+        gray: "#646464"
+        darkgray: "#d4d4d4"
+        dark: "#fafafa"
+        secondary: "#d4d4d4"
+        tertiary: "#a0a0a0"
+        highlight: "rgba(255, 255, 255, 0.06)"
+        textHighlight: "rgba(255, 255, 255, 0.1)"
+
+plugins:
+  - source: github:quartz-community/created-modified-date
+    enabled: true
+    options:
+      defaultDateType: modified
+      priority:
+        - frontmatter
+        - git
+        - filesystem
+    order: 10
+
+  - source: github:quartz-community/syntax-highlighting
+    enabled: true
+    options:
+      theme:
+        light: github-light
+        dark: github-dark
+      keepBackground: false
+    order: 20
+
+  - source: github:quartz-community/obsidian-flavored-markdown
+    enabled: true
+    options:
+      enableInHtmlEmbed: false
+      enableCheckbox: true
+    order: 30
+
+  - source: github:quartz-community/github-flavored-markdown
+    enabled: true
+    order: 40
+
+  - source: github:quartz-community/table-of-contents
+    enabled: true
+    order: 50
+    layout:
+      position: right
+      priority: 30
+
+  - source: github:quartz-community/crawl-links
+    enabled: true
+    options:
+      markdownLinkResolution: shortest
+    order: 60
+
+  - source: github:quartz-community/description
+    enabled: true
+    order: 70
+
+  - source: github:quartz-community/latex
+    enabled: true
+    options:
+      renderEngine: katex
+    order: 80
+
+  - source: github:quartz-community/citations
+    enabled: false
+    order: 85
+
+  - source: github:quartz-community/hard-line-breaks
+    enabled: false
+    order: 90
+
+  - source: github:quartz-community/ox-hugo
+    enabled: false
+    order: 91
+
+  - source: github:quartz-community/roam
+    enabled: false
+    order: 92
+
+  - source: github:quartz-community/remove-draft
+    enabled: false
+
+  - source: github:quartz-community/explicit-publish
+    enabled: true
+
+  - source: github:quartz-community/alias-redirects
+    enabled: true
+
+  - source: github:quartz-community/content-index
+    enabled: true
+    options:
+      enableSiteMap: true
+      enableRSS: true
+
+  - source: github:quartz-community/favicon
+    enabled: true
+
+  - source: github:quartz-community/og-image
+    enabled: true
+
+  - source: github:quartz-community/cname
+    enabled: false
+
+  - source: github:quartz-community/canvas-page
+    enabled: false
+
+  - source: github:quartz-community/content-page
+    enabled: true
+
+  - source: github:quartz-community/folder-page
+    enabled: true
+
+  - source: github:quartz-community/tag-page
+    enabled: true
+
+  - source: github:quartz-community/explorer
+    enabled: false
+
+  - source: github:quartz-community/graph
+    enabled: true
+    layout:
+      position: afterBody
+      priority: 10
+      condition: not-index
+      group: graph-backlinks
+      groupOptions:
+        grow: true
+
+  - source: github:quartz-community/search
+    enabled: true
+    layout:
+      position: left
+      priority: 20
+      group: toolbar
+      groupOptions:
+        grow: true
+
+  - source: github:quartz-community/backlinks
+    enabled: true
+    layout:
+      position: afterBody
+      priority: 20
+      condition: not-index
+      group: graph-backlinks
+      groupOptions:
+        grow: true
+
+  - source: github:quartz-community/article-title
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 10
+      condition: not-index
+
+  - source: github:quartz-community/content-meta
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 20
+      condition: not-index
+
+  - source: github:quartz-community/tag-list
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 30
+
+  - source: github:quartz-community/page-title
+    enabled: true
+    layout:
+      position: left
+      priority: 10
+
+  - source: github:quartz-community/darkmode
+    enabled: true
+    layout:
+      position: left
+      priority: 30
+      group: toolbar
+
+  - source: github:quartz-community/reader-mode
+    enabled: true
+    layout:
+      position: left
+      priority: 35
+      group: toolbar
+
+  - source: github:quartz-community/breadcrumbs
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 5
+      condition: not-index
+
+  - source: github:quartz-community/comments
+    enabled: false
+
+  - source: github:quartz-community/footer
+    enabled: true
+    options:
+      links:
+        Website: https://viswanathsaj.com
+
+  - source: github:quartz-community/recent-notes
+    enabled: false
+
+  - source: github:quartz-community/spacer
+    enabled: true
+    layout:
+      position: left
+      priority: 25
+      group: toolbar
+      groupOptions:
+        grow: true
+    order: 25
+
+  - source: github:quartz-community/bases-page
+    enabled: false
+
+  - source: github:quartz-community/note-properties
+    enabled: true
+    options:
+      includeAll: false
+      includedProperties:
+        - description
+        - tags
+        - aliases
+      excludedProperties: []
+      hidePropertiesView: false
+      delimiters: ---
+      language: yaml
+    order: 5
+
+  - source: github:quartz-community/unlisted-pages
+    enabled: true
+    order: 45
+
+  - source: github:quartz-community/encrypted-pages
+    enabled: false
+
+  - source: github:quartz-community/stacked-pages
+    enabled: false
+
+layout:
+  groups:
+    toolbar:
+      priority: 35
+      direction: row
+      gap: 0.5rem
+    graph-backlinks:
+      direction: row
+      gap: 1.5rem
+  byPageType:
+    "404":
+      positions:
+        beforeBody: []
+        left: []
+        right: []
+    content: {}
+    folder:
+      exclude:
+        - reader-mode
+      positions:
+        right: []
+    tag:
+      exclude:
+        - reader-mode
+      positions:
+        right: []
